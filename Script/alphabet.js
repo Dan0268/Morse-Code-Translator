@@ -51,5 +51,38 @@ letterArr(alphabet, "8", "---**");
 letterArr(alphabet, "9", "----*");
 letterArr(alphabet, "0", "-----");
 
+letterArr(alphabet, " ", "    ");
 
-export { alphabet };
+export {alphabet};
+
+export const translate = (character) => {
+    if (character == "") {
+        return "";
+    } else 
+    // morse to text
+    if (/[a-z]/gi.test(character) === false) {
+
+        const morseArr = character.toLowerCase().split("    ");
+        const lettersArr = (morseArr.map(n => n.split(" ")));
+        lettersArr.forEach(element => element.push("    "));  
+        const flatArr = lettersArr.flat();
+        const translatedArr = flatArr.map(char => 
+            char = alphabet.find(n => n.morse === char).letter
+        );            
+        return translatedArr.join("").slice(0, -1);
+    } 
+    // text to morse
+    else {
+        const lettersArr = character.split(" ");
+        const morseArr = (lettersArr.map(n => n.split("")));
+        morseArr.forEach(element => element.push(" "));
+        const flatArr = morseArr.flat();
+        const translatedArr = flatArr.map(char => {
+            if (char === " ") {
+                return char = alphabet.find(n => n.letter === char).morse.slice(0, -1)
+            } else            
+            return char = `${alphabet.find(n => n.letter === char).morse} `
+         });
+        return translatedArr.join("").slice(0, -4);
+    }
+};

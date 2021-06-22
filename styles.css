@@ -1,0 +1,12 @@
+.title {
+    max-width: 30%;
+}
+
+#inputArea, #outputArea {
+    margin: 5px 0px;
+    font-size: 1rem;
+    width: 50%;
+    word-wrap: normal;
+    resize: none;
+}
+

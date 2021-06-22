@@ -1,28 +1,54 @@
 import { alphabet } from "./alphabet.js";
 
 const translate = (character) => {
-
     // morse to text
     if (/[a-z]/gi.test(character) === false) {
 
-        const morseArr = character.split("    ");
-        console.log(morseArr);
-
+        const morseArr = character.toLowerCase().split("    ");
         const lettersArr = (morseArr.map(n => n.split(" ")));
-        lettersArr.forEach(element => element.push("    "));
-        console.log(lettersArr);
-        
+        lettersArr.forEach(element => element.push("    "));  
         const flatArr = lettersArr.flat();
-        console.log(flatArr);
-        
-        const translatedArr = flatArr.map(element => {
-            return alphabet.find(n => n.morse === element).letter;
-        });
-        return translatedArr;
-    };
+        const translatedArr = flatArr.map(char => 
+            char = alphabet.find(n => n.morse === char).letter
+        );            
+        return translatedArr.join("").slice(0, -1);
+    } 
+    else {
+        const lettersArr = character.split(" ");
+        const morseArr = (lettersArr.map(n => n.split("")));
+        morseArr.forEach(element => element.push(" "));
+        const flatArr = morseArr.flat();
+        const translatedArr = flatArr.map(char => {
+            if (char === " ") {
+                return char = alphabet.find(n => n.letter === char).morse.slice(0, -1)
+            } else            
+            return char = `${alphabet.find(n => n.letter === char).morse} `
+         });
+        return translatedArr.join("").slice(0, -4);
+    }
 };
 
-console.log(translate("-*-* *- -    *--- **- -- *--*"));
+
+        //     alphabet.find((o, i) =>{
+        //         if (o.morse === char) {
+        //             char = alphabet[i].letter;
+        //         }
+        //     });
+        // });
+    
+            // if (alphabet.findIndex(char)) {
+            //     alphabet.findIndex(char).letter
+        //     }
+        //     // return alphabet.find(n => n.morse === element).letter;
+        // });
+        
+    
+
+
+console.log(translate("cat jumps on table"));
+console.log(translate("-*-* *- -    *--- **- -- *--* ***    --- -*    - *- -*** *-** *"));
+console.log(translate("hello there friendo"));
+console.log(translate("**** * *-** *-** ---    - **** * *-* *    **-* *-* ** * -* -** ---"));
         
         //     alphabet.find(n => n.morse === element).letter);
         // return flatArr;

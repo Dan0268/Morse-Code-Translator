@@ -4,10 +4,21 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Danijel's Morse Code Translator</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <script type="module" src="./script/script.js"></script>
+    <div class="title">
+        <h1>Danijel's Morse Code Translator</h1>
+    </div>
+    <div>
+        <textarea type="text" id="inputArea" placeholder="Please input ONLY letters and numbers (single space between words) OR morse code (single space between letters, four spaces between words). No other characters (+-*/&%., etc.)" rows="5"></textarea>
+
+    </div>
+    <div>
+        <textarea type="text" id="outputArea" readonly rows="15"></textarea>
+    </div>
+    <script type="module" src="./script/dom.js"></script>
     <!-- <script src="./Script/alphabet.js"></script> -->
 </body>
 </html>
