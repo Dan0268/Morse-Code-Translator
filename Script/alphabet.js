@@ -60,9 +60,9 @@ export const translate = (character) => {
         return "";
     } else 
     // morse to text
-    if (/[a-z]/gi.test(character) === false && /[0-9]/g.test(character) === false){
+    if (/[a-z]/g.test(character) === false && /[0-9]/g.test(character) === false && /[A-Z]/g.test(character) === false){
 
-        const morseArr = character.toLowerCase().split("    ");
+        const morseArr = character.split("    ");
         const lettersArr = (morseArr.map(n => n.split(" ")));
         lettersArr.forEach(element => element.push("    "));  
         const flatArr = lettersArr.flat();
@@ -73,7 +73,7 @@ export const translate = (character) => {
     } 
     // text to morse
     else {
-        const lettersArr = character.split(" ");
+        const lettersArr = character.toLowerCase().split(" ");
         const morseArr = (lettersArr.map(n => n.split("")));
         morseArr.forEach(element => element.push(" "));
         const flatArr = morseArr.flat();
