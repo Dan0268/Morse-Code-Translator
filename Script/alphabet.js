@@ -60,7 +60,7 @@ export const translate = (character) => {
         return "";
     } else 
     // morse to text
-    if (/[a-z]/gi.test(character) === false) {
+    if (/[a-z]/gi.test(character) === false && /[0-9]/g.test(character) === false){
 
         const morseArr = character.toLowerCase().split("    ");
         const lettersArr = (morseArr.map(n => n.split(" ")));

@@ -1,4 +1,4 @@
-import { alphabet, translate } from "./alphabet.js";
+import { translate } from "./alphabet.js";
 
 let inputText = document.getElementById("inputArea").value;
 const output = document.getElementById("outputArea").value;
